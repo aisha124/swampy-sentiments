@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc && react-scripts-ts start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase": "^9.16.0"
+    "firebase": "^9.16.0",
+    "@types/firebase": "^9.16.0"
+  },
+  "devDependencies": {
+    "react-scripts-ts": "^4.0.8",
+    "typescript": "^3.x.x"
   }
 }
