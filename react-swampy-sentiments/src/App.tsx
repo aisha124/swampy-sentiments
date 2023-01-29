@@ -12,7 +12,13 @@ function App() {
         <div className='currentDate'>
           <CurrentDate/>
         </div>
-        <h1 className='Header'>How are you feeling today?</h1>
+        <img
+                className='layers'
+                src={process.env.PUBLIC_URL + "/assets/layers.png"}
+                alt="Ogres have layers"
+            />
+
+        <h1 className='Header'>Which layer are you feeling today?</h1>
         <Moods/>
       </header>
     </div>

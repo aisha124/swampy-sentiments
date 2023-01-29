@@ -18,3 +18,10 @@
   font-family: Lexend Peta;
   color: #408A2E;
 }
+
+.layers{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
