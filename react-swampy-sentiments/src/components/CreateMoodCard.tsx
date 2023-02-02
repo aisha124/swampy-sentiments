@@ -5,31 +5,26 @@ import { getDatabase, ref, push } from 'firebase/database'
 
 const CreateMoodCard = () => {
   const db = getDatabase(app);
-  const [name, setName] = useState("");
+  const [journalEntry, setJournalEntry] = useState("");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    setName(event.currentTarget.value);
+  const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setJournalEntry(e.target.value);
   };
 
-  const addTodo = () => {
-    const todoRef = ref(db, "/todos");
-    const todo = {
-      name,
+  const addEntry = () => {
+    const entryRef = ref(db, "/entry");
+    const entry = {
+      journalEntry,
       done: false,
     };
-    push(todoRef, todo);
+    push(entryRef, entry);
     };
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        value={name}
-        onChange={e => setName(e.target.value)}
-      />
-      <button type="submit">Submit</button>
+    <form>
+      <input type="text" onChange={handleSubmit} />
+      <button type="button" onClick={addEntry}></button>
     </form>
   );
 };
