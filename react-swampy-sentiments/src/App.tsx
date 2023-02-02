@@ -2,7 +2,9 @@ import React from 'react';
 import './App.css'
 import CurrentDate from './components/Date';
 import Moods from './components/Moods';
-
+// import CreateMoodCard from './components/CreateMoodCard';
+// import ToDoList from "./components/ToDoList";
+// import ToDoForm from "./components/ToDoForm";
 
 
 function App() {
@@ -12,6 +14,7 @@ function App() {
         <h1 className='Swampy'>Swampy Sentiments</h1>
         <div className='currentDate'>
           <CurrentDate/>
+
         </div>
         <img
                 className='layers'
