@@ -11,7 +11,7 @@ function CurrentDate() {
 
   return (
     <div>
-      <h1>{date.toDateString()}</h1>
+      <h1 className='dateString'>{date.toDateString()}</h1>
     </div>
   );
 }

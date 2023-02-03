@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { database, app } from "../firebase";
 import { getDatabase, ref, push } from 'firebase/database'
 import './CreateMoodCard.css'
+import CurrentDate from './Date';
 
 interface Props {
   closeModal: boolean;
@@ -19,6 +20,7 @@ const CreateMoodCard = ({closeModal}: {closeModal: (arg: boolean) => void}) => {
     const entryRef = ref(db, "/entry");
     const entry = {
       journalEntry,
+      date: new Date().toString()
     };
     push(entryRef, entry);
     };
@@ -31,6 +33,10 @@ const CreateMoodCard = ({closeModal}: {closeModal: (arg: boolean) => void}) => {
           <div className= "closeButton">
             <button type="button" onClick={() => closeModal(false)}>X</button>
           </div>
+          <div className= "Date">
+            <CurrentDate />
+          </div>
+
           <div className= "noteInput">
             <h1 >Your Note:</h1>
           </div>

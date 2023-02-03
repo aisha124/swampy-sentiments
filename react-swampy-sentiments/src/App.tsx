@@ -10,7 +10,7 @@ function App() {
     <div className="App">
         <h1 className='Swampy'>Swampy Sentiments</h1>
         <div className='currentDate'>
-          <CurrentDate/>
+          < CurrentDate />
 
         </div>
         <img
