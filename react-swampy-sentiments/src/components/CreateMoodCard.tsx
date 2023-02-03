@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { database, app } from "../firebase";
-import { getDatabase, ref, push } from 'firebase/database'
+import { getDatabase, ref, push, set } from 'firebase/database'
 import './CreateMoodCard.css'
 import CurrentDate from './Date';
 
@@ -10,20 +10,29 @@ interface Props {
 
 const CreateMoodCard = ({closeModal}: {closeModal: (arg: boolean) => void}) => {
   const db = getDatabase(app);
-  const [journalEntry, setJournalEntry] = useState("");
+  const [note, setNote] = useState("");
 
   const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setJournalEntry(e.target.value);
+    setNote(e.target.value);
   };
 
   const addEntry = () => {
-    const entryRef = ref(db, "/entry");
+    const date = new Date().toDateString(); // Use the date string as the key
+    const entryRef = ref(db, `/entry/${date}`); // Use the date string as the key in the ref
     const entry = {
-      journalEntry,
-      date: new Date().toString()
+      note,
     };
-    push(entryRef, entry);
-    };
+    set(entryRef, entry); // Use set instead of push to set the value at the key
+  };
+
+  // const addEntry = () => {
+  //   const entryRef = ref(db, "/entry");
+  //   const entry = {
+  //     journalEntry,
+  //     date: new Date().toString(),
+  //   };
+  //   push(entryRef, entry);
+  //   };
 
 
   return (

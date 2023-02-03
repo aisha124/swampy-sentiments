@@ -5,6 +5,9 @@ import CreateMoodCard from "./CreateMoodCard";
 
 function Moods() {
     const [showForm, setShowForm] = useState(false);
+    const [selectedMood, setSelectedMood] = useState("");
+
+    
 
   return (
     <div className='moodContainer'>
