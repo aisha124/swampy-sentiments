@@ -1,15 +1,10 @@
-import '../Mood.css'
+import './Mood.css'
 import React, { useState } from "react";
 import CreateMoodCard from "./CreateMoodCard";
 
+
 function Moods() {
     const [showForm, setShowForm] = useState(false);
-
-    const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-      };
-
-    
 
   return (
     <div className='moodContainer'>
@@ -76,7 +71,7 @@ function Moods() {
             <h1 className='moodHeader'>Angry</h1>
         </div>
         {showForm && (
-            <CreateMoodCard/>
+            <CreateMoodCard closeModal = {setShowForm}/>
         )}
     </div>
     
