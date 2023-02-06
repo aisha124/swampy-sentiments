@@ -16,6 +16,8 @@
   text-align:center;
   font-family: Lexend Peta;
   color: #408A2E;
+  margin-top:30px ;
+  margin-bottom: 40px;
 }
 
 .layers{
@@ -23,6 +25,7 @@
   margin-left: auto;
   margin-right: auto;
   width: 40%;
+  opacity: 0.7;
 }
 
 .Swampy{

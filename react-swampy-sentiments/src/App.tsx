@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css'
 import CurrentDate from './components/Date';
 import Moods from './components/Moods';
-
+import PastMoodsList from './components/PastMoodsList';
+import MoodDistributionChart from './components/MoodDistributionChart';
 
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
 
         <h1 className='Header'>Which layer are you feeling today?</h1>
         <Moods/>
+        <PastMoodsList/>
+        <MoodDistributionChart/>
     </div>
   );
 }

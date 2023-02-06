@@ -86,3 +86,21 @@
   font-family: Lexend Peta;
   color: #ffffff;
 }
+
+.moodImg{
+  max-width:  140px; 
+  max-height: 140px;
+  border-radius: 10px;
+  /* border-color: #B0C400;
+  border-width: 10px;
+  border-style: solid; */
+  margin-top: 15px;
+}
+
+.selectedMoodTitle{
+  font-family: Chicle;
+  color: #408A2E;;
+  font-size: 30px;
+}
+
+

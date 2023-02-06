@@ -3,15 +3,25 @@ import { database, app } from "../firebase";
 import { getDatabase, ref, push, set } from 'firebase/database'
 import './CreateMoodCard.css'
 import CurrentDate from './Date';
+import SpotifySongSelection from './SpotifySongSelection';
+import SongSelection from './SongSelection';
 
-interface Props {
-  closeModal: boolean;
+
+interface CreateMoodCardProps {
+  closeModal: (arg: boolean) => void;
+  selectedMood: string;
+  selectedImg: {
+    src: string;
+    alt: string;
+    };
 }
 
-const CreateMoodCard = ({closeModal}: {closeModal: (arg: boolean) => void}) => {
+function CreateMoodCard({ closeModal, selectedMood, selectedImg }: CreateMoodCardProps): JSX.Element {
+  
+  const [note, setNote] = useState(""); {
+    
   const db = getDatabase(app);
   const [note, setNote] = useState("");
-
   const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNote(e.target.value);
   };
@@ -21,6 +31,8 @@ const CreateMoodCard = ({closeModal}: {closeModal: (arg: boolean) => void}) => {
     const entryRef = ref(db, `/entry/${date}`); // Use the date string as the key in the ref
     const entry = {
       note,
+      selectedMood,
+      selectedImg
     };
     set(entryRef, entry); // Use set instead of push to set the value at the key
   };
@@ -52,6 +64,17 @@ const CreateMoodCard = ({closeModal}: {closeModal: (arg: boolean) => void}) => {
           <div className= "textInput">
               <input type="text"  placeholder="Add a note..." onChange={handleSubmit} />
           </div>
+          <div className= "selectedMood">
+              
+                <div className="moodImgBox">
+                  <img className = 'moodImg' src={selectedImg.src} alt={selectedImg.alt} />
+                </div>
+                <div className = "selectedMoodTitle">{selectedMood}</div>
+          </div>
+              
+             
+              
+
           <div className = "footer">
             <div className = "submitButton">
               <button type="button" onClick={addEntry}> Save </button>
@@ -59,9 +82,11 @@ const CreateMoodCard = ({closeModal}: {closeModal: (arg: boolean) => void}) => {
           </div>
           
         </form>
+        {/* <SpotifySongSelection/> */}
+        {/* <SongSelection/> */}
     </div>
   </div>
   );
-};
+};}
 
 export default CreateMoodCard;
